@@ -30,22 +30,19 @@ class App(Ursina):
         EditorCamera()
         camera.world_position = (0, 0, -15)
         self.spheres = []
+        self.iterator = 0
         self.load_process()
         self.i = 0
 
     def read_file(self):
-        iterator = 0
         for i in self.spheres:
-            if self.file[iterator][0] != 'step':
-                i.position = (float(self.file[iterator][0]) * 10E9,
-                              float(self.file[iterator][1]) * 10E9,
-                              float(self.file[iterator][2]) * 10E9)
+            if self.file[self.iterator][0] != 'step ':
+                i.position = (float(self.file[self.iterator][0]) * 10E9,
+                              float(self.file[self.iterator][1]) * 10E9,
+                              float(self.file[self.iterator][2]) * 10E9)
             else:
                 pass
-            print(Vec3(float(self.file[iterator][0]) * 10E9,
-                                  float(self.file[iterator][1]) * 10E9,
-                                  float(self.file[iterator][2]) * 10E9))
-            iterator = iterator + 1
+            self.iterator = self.iterator + 1
 
     def load_process(self):
         self.spheres.clear()
@@ -60,7 +57,7 @@ class App(Ursina):
                             ((k + 1) * L / N) / 1.1 * 30
                         ),
                         color=color.brown,
-                        scale=0.1
+                        scale=0.7
                     ))
 
     def update(self):
