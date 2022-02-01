@@ -1,5 +1,9 @@
+import time
+
 from ursina import *
 from data import *
+from time import *
+from random import randrange
 import csv
 
 
@@ -33,11 +37,14 @@ class App(Ursina):
         iterator = 0
         for i in self.spheres:
             if self.file[iterator][0] != 'step':
-                i.position = Vec3(float(self.file[iterator][0]) * 10E9,
-                                  float(self.file[iterator][1]) * 10E9,
-                                  float(self.file[iterator][2]) * 10E9)
+                i.position = (float(self.file[iterator][0]) * 10E9,
+                              float(self.file[iterator][1]) * 10E9,
+                              float(self.file[iterator][2]) * 10E9)
             else:
                 pass
+            print(Vec3(float(self.file[iterator][0]) * 10E9,
+                                  float(self.file[iterator][1]) * 10E9,
+                                  float(self.file[iterator][2]) * 10E9))
             iterator = iterator + 1
 
     def load_process(self):
@@ -52,7 +59,8 @@ class App(Ursina):
                             ((j + 1) * L / N) / 1.1 * 30,
                             ((k + 1) * L / N) / 1.1 * 30
                         ),
-                        color=color.brown
+                        color=color.brown,
+                        scale=0.1
                     ))
 
     def update(self):
