@@ -1,10 +1,8 @@
-import time
-
 from ursina import *
 from data import *
-from time import *
 from random import randrange
 import csv
+import time
 
 
 class App(Ursina):
@@ -62,6 +60,7 @@ class App(Ursina):
 
     def update(self):
         self.read_file()
+        time.sleep(0.02)
 
     def input(self, key):
         super().input(key)
