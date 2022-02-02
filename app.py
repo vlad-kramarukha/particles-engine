@@ -23,8 +23,8 @@ class App(Ursina):
             texture='textures/sky0',
             double_sided=True
         )
-        with open('files/coords.csv', encoding='utf-8') as r_file:
-            self.file = list(csv.reader(r_file, delimiter=","))
+        # with open('files/coords.csv', encoding='utf-8') as r_file:
+        #     self.file = list(csv.reader(r_file, delimiter=","))
         EditorCamera()
         camera.world_position = (0, 0, -15)
         self.spheres = []
@@ -54,13 +54,15 @@ class App(Ursina):
                             ((j + 1) * L / N) / 1.1 * 30,
                             ((k + 1) * L / N) / 1.1 * 30
                         ),
+                        texture='textures/img1',
                         color=color.brown,
                         scale=0.7
                     ))
 
     def update(self):
-        self.read_file()
-        time.sleep(0.02)
+        pass
+        # self.read_file()
+        # time.sleep(0.02)
 
     def input(self, key):
         super().input(key)
