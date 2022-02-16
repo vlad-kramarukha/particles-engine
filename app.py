@@ -29,7 +29,7 @@ class App(Ursina):
         camera.world_position = (0, 0, -15)
         self.spheres = []
         self.iterator = 0
-        self.load_process()
+        self.addSpheresOnScene()
         self.i = 0
 
     def read_file(self):
@@ -42,22 +42,24 @@ class App(Ursina):
                 pass
             self.iterator = self.iterator + 1
 
-    def load_process(self):
+    def createSphere(self, x, y, z):
+        Entity(
+            model='sphere',
+            position=(x, y, z),
+            texture='textures/img1',
+            color=color.brown,
+            scale=0.7
+        )
+
+    def addSpheresOnScene(self):
         self.spheres.clear()
         for i in range(N):
             for j in range(N):
                 for k in range(N):
-                    self.spheres.append(Entity(
-                        model='sphere',
-                        position=(
-                            ((i + 1) * L / N) / 1.1 * 30,
-                            ((j + 1) * L / N) / 1.1 * 30,
-                            ((k + 1) * L / N) / 1.1 * 30
-                        ),
-                        texture='textures/img1',
-                        color=color.brown,
-                        scale=0.7
-                    ))
+                    x = ((i + 1) * L / N) / 1.1 * 30
+                    y = ((j + 1) * L / N) / 1.1 * 30
+                    z = ((k + 1) * L / N) / 1.1 * 30
+                    self.spheres.append(self.createSphere(x, y, z))
 
     def update(self):
         pass
