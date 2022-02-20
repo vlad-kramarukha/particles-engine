@@ -30,7 +30,7 @@ class App(Ursina):
             self.file = list(csv.reader(r_file, delimiter=","))
 
     # Метод для рендера частиц по координатам из файла
-    def render(self):
+    def render_frames(self):
         for i in self.spheres:
             if self.file[self.iterator][0] != 'step ':
                 i.position = (float(self.file[self.iterator][0]) * 10E9,
@@ -53,7 +53,7 @@ class App(Ursina):
 
     # Метод отрисовки кадра (вызывается N количество раз в зависимости от герцовки монитора)
     def update(self):
-        self.render()
+        self.render_frames()
         # time.sleep(0.02)
 
     # Метод для подключения контроллеров для управления камерой
