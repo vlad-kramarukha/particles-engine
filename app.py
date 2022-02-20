@@ -21,9 +21,16 @@ class App(Ursina):
         EditorCamera()
         # Устанавливаем начальные координаты камеры
         camera.world_position = (0, 0, -15)
-
         # Добавляем частицы на сцену
         self.addSpheresOnScene()
+
+        Entity(
+            model='cube',
+            position=(15,15,15),
+            scale=L * 30,
+            color=rgb(176, 0, 0, a=20),
+            opacity=0.2
+        )
 
         # Получаем данные из файла с координатами
         with open('files/coords.csv', encoding='utf-8') as r_file:
