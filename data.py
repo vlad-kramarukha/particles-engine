@@ -1,15 +1,18 @@
-N = 10
-length = N**3
-time = 10**-5
-dt = 10**-16
-m = 6.63 * 1e-24
-KB = 1.38 * 10**-23
-EPS = 165 * 1e-23
-SIG = 0.341 * 1e-9
-R = SIG / 3
-T = 120
-P = 11 * 10**6
-V = (N**2) * (KB * T) // P
-L = V**(1 // 3)
+import json
 
+
+def initData():
+    N = 0
+    L = 0
+
+    with open('files/config.json') as config:
+        templates = json.load(config)
+
+    for section, commands in templates.items():
+        if (section == 'N'):
+            N = commands
+        if (section == 'L'):
+            L = commands
+
+    return [N, L]
 

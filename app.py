@@ -9,7 +9,9 @@ import time
 class App(Ursina):
     def __init__(self):
         super().__init__()
-
+        self.data = initData()
+        self.N = self.data[0]
+        self.L = self.data[1]
         # Массив частиц
         self.spheres = []
         # Счетчик для чтения файла
@@ -27,7 +29,7 @@ class App(Ursina):
         Entity(
             model='cube',
             position=(15,15,15),
-            scale=L * 30,
+            scale=self.L * 30,
             color=rgb(176, 0, 0, a=20),
             opacity=0.2
         )
@@ -50,12 +52,12 @@ class App(Ursina):
     # Метод для расстановки частиц в кубе с начальными координатами
     def addSpheresOnScene(self):
         self.spheres.clear()
-        for i in range(N):
-            for j in range(N):
-                for k in range(N):
-                    x = ((i + 1) * L / N) / 1.1 * 30
-                    y = ((j + 1) * L / N) / 1.1 * 30
-                    z = ((k + 1) * L / N) / 1.1 * 30
+        for i in range(self.N):
+            for j in range(self.N):
+                for k in range(self.N):
+                    x = ((i + 1) * self.L / self.N) / 1.1 * 30
+                    y = ((j + 1) * self.L / self.N) / 1.1 * 30
+                    z = ((k + 1) * self.L / self.N) / 1.1 * 30
                     self.spheres.append(Sphere(x, y, z))
 
     # Метод отрисовки кадра (вызывается N количество раз в зависимости от герцовки монитора)
