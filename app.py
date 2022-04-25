@@ -52,13 +52,13 @@ class App(Ursina):
     # Метод для расстановки частиц в кубе с начальными координатами
     def addSpheresOnScene(self):
         self.spheres.clear()
-        WHD = N**(1 / 3) + 1
-        for i in range(WHD):
-            for j in range(WHD):
-                for k in range(WHD):
-                    x = ((i + 1) * self.L / WHD) / 1.1 * 30
-                    y = ((j + 1) * self.L / WHD) / 1.1 * 30
-                    z = ((k + 1) * self.L / WHD) / 1.1 * 30
+        WHD = self.N**(1 / 3) + 1
+        for i in range(int(WHD)):
+            for j in range(int(WHD)):
+                for k in range(int(WHD)):
+                    x = ((i + 1) * self.L / int(WHD)) / 1.1 * 30
+                    y = ((j + 1) * self.L / int(WHD)) / 1.1 * 30
+                    z = ((k + 1) * self.L / int(WHD)) / 1.1 * 30
                     self.spheres.append(Sphere(x, y, z))
 
     # Метод отрисовки кадра (вызывается N количество раз в зависимости от герцовки монитора)
