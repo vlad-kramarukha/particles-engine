@@ -8,11 +8,11 @@ class Space:
     def createSpace():
         Entity(
             model='quad',
-            scale=100,
+            scale=1000,
             texture='white_cube',
             texture_scale=(60, 60),
             rotation_x=90,
-            y=-5,
+            y=-50,
             color=color.light_gray
         )
         Entity(

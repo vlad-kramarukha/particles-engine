@@ -28,8 +28,8 @@ class App(Ursina):
 
         Entity(
             model='cube',
-            position=(15,15,15),
-            scale=self.L * 30,
+            position=(0,0,0),
+            scale=self.L * 10E9,
             color=rgb(176, 0, 0, a=20),
             opacity=0.2
         )
