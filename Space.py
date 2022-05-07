@@ -16,8 +16,8 @@ class Space:
             color=color.light_gray
         )
         Entity(
-            model='sphere',
-            scale=5000,
-            texture='textures/cosmos_3',
-            double_sided=True,
-        )
+             model='sphere',
+             scale=5000,
+             color=color.cyan,
+             double_sided=True,
+         )

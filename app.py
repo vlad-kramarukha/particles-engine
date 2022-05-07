@@ -64,7 +64,7 @@ class App(Ursina):
     # Метод отрисовки кадра (вызывается N количество раз в зависимости от герцовки монитора)
     def update(self):
         self.render_frames()
-        # time.sleep(0.02)
+        #time.sleep(0.02)
 
     # Метод для подключения контроллеров для управления камерой
     def input(self, key):

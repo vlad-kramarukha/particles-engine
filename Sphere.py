@@ -1,4 +1,5 @@
 from ursina import Entity
+from ursina import color
 
 
 class Sphere(Entity):
@@ -7,6 +8,7 @@ class Sphere(Entity):
         super().__init__(
             model='sphere',
             position=(x, y, z),
-            texture='textures/earth',
+            #color=color.black,
+            texture='mars.jpg',
             scale=0.7
         )
