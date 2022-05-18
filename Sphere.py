@@ -10,5 +10,5 @@ class Sphere(Entity):
             position=(x, y, z),
             #color=color.black,
             texture='mars.jpg',
-            scale=0.7
+            scale=1
         )

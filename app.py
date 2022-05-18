@@ -26,14 +26,6 @@ class App(Ursina):
         # Добавляем частицы на сцену
         self.addSpheresOnScene()
 
-        Entity(
-            model='cube',
-            position=(0,0,0),
-            scale=self.L * 10E9,
-            color=rgb(176, 0, 0, a=20),
-            opacity=0.2
-        )
-
         # Получаем данные из файла с координатами
         with open('files/coords.csv', encoding='utf-8') as r_file:
             self.file = list(csv.reader(r_file, delimiter=","))
